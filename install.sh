@@ -11,8 +11,8 @@ sudo apt update
 sudo apt upgrade -y
 
 # install git, curl, npm
-sudo apt install git
-sudo apt install curl
+sudo apt install git -y
+sudo apt install curl -y
 sudo apt install npm
 
 
