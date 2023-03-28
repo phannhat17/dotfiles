@@ -29,6 +29,7 @@ sudo apt install neofetch -y
 # open in code, install chrome
 ./open_in_code.sh
 ./install_chrome.sh
+./install_docker_desktop.sh
 
 # install zsh and oh my zsh
 sudo apt-get install zsh
