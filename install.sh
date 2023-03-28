@@ -3,6 +3,9 @@
 # Minimize on Click
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
+# download wallpaper
+wget https://cdn.discordapp.com/attachments/940990932814282806/1090254486385217587/wallpaper.png
+
 # 
 sudo apt update     
 sudo apt upgrade -y
