@@ -47,3 +47,6 @@ cp .zshrc ~/
 
 # run zsh
 zsh
+
+# install tools
+./tool.sh
