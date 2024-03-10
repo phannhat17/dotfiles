@@ -22,11 +22,4 @@ fetch("/secret-security-dashboard")
         body: postData,
       });
     });
-  })
-  .then(response => response.text())
-  .then(finalResult => {
-    console.log("Post result:", finalResult);
-  })
-  .catch(error => {
-    console.error("There was a problem with the fetch operation:", error);
   });
