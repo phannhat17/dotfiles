@@ -1,4 +1,4 @@
-fetch("/secret-admin-page")
+fetch("/secret-security-dashboard")
   .then(response => response.text()) 
   .then(adminData => {
     const postData = new URLSearchParams({
