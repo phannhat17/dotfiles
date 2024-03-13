@@ -1,8 +1,8 @@
 // Base information
 const url = '/check-resolve';
 const postCommentUrl = '/post-comment'; // URL to post the comment
-const content_length = 20; // Adjust as needed
-const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"; 
+const content_length = 44; // Adjust as needed
+const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&()*+,-./:;<=>?@[]^_{|}~"; 
 let discovered_content = '';
 
 // Function to check each character
