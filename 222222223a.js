@@ -51,7 +51,7 @@ function postDiscoveredContent() {
 
 // Main function to find the content
 async function findContent() {
-  let content_length = 20; // Adjust based on expected length
+  let content_length = 2; // Adjust based on expected length
   for (let position = 1; position <= content_length; position++) {
     let found_char = false;
     for (const char of characters) {
