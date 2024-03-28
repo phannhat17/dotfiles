@@ -42,7 +42,7 @@ function postDiscoveredContent() {
 }
 
 async function findContent() {
-  let content_length = 10; 
+  let content_length = 5; 
   for (let position = 1; position <= content_length; position++) {
     let found_char = false;
     for (const char of characters) {
