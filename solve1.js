@@ -42,29 +42,19 @@ function postDiscoveredContent() {
 }
 
 async function findContent() {
-  let startPosition = 0; // Starting from the 11th character
-  let content_length = 10; // Limit to the 20th character
+  let startPosition = 1;
+  let content_length = 5;
   for (let position = startPosition; position <= content_length; position++) {
-    let foundChar = false;
+    let found_char = false;
     for (const char of characters) {
       const found = await checkCharacter(position, char);
       if (found) {
-        foundChar = true;
-        discovered_content += char; // Append the found character to the discovered content
-        if (char === "}") {
-          console.log("End of content reached with '}'.");
-          postDiscoveredContent();
-          return; // Exit the function if the end marker is found
-        }
-        break; // Exit the character loop early if the correct character is found
+        found_char = true;
+        break; 
       }
     }
-    if (!foundChar) {
-      console.log(`Character not found at position: ${position}. May have reached the end of content.`);
-      break; // Break the loop if no character matches at the current position, indicating the end of content
-    }
   }
-  postDiscoveredContent(); // Send the discovered content if the loop completes without finding "}"
+  postDiscoveredContent(); 
 }
 
 findContent();

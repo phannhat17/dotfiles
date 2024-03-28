@@ -42,8 +42,8 @@ function postDiscoveredContent() {
 }
 
 async function findContent() {
-  let startPosition = 6;
-  let content_length = 10;
+  let startPosition = 31;
+  let content_length = 35;
   for (let position = startPosition; position <= content_length; position++) {
     let found_char = false;
     for (const char of characters) {
